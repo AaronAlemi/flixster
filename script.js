@@ -20,29 +20,13 @@ const overlayContainer = document.getElementById("overlay-container")
 const nowPlayingText = document.getElementById("now-playing-text")
 const searchText = document.getElementById("search-results-text")
 
-
+// EVENT LISTENERS
 form.addEventListener("submit", formSubmitHandler)
-
 loadButton.addEventListener("click", showMore)
-
 window.addEventListener("load", getNowPlaying)
-
 resetButton.addEventListener("click", resetButtonHandler)
 
-/*async function handleFormSubmit(evt) {
-    getResults(evt);
-}*/
-
-// 1. execute function on page load
-// 2. 
-
-// Ask on slack that you arent sure how to execute on page load - peers should help
-// Hint: look for window.onload
-
-// First, implement first portion of it, to save the movies that have already been rendered, 
-// put the innerHTML in a variable so you have it saved
-
-
+// FUNCTIONS
 async function getNowPlaying(evt) {
     resetButton.classList.add("hidden")
     console.log("Inside getCurrentMovies()")
@@ -68,7 +52,6 @@ function resetButtonHandler(evt) {
     getNowPlaying(evt)
 }
 
-
 function formSubmitHandler(evt) {
     nowPlayingStatus = false;
     nowPlayingText.classList.add("hidden")
@@ -83,37 +66,21 @@ function formSubmitHandler(evt) {
 }
 
 async function getResults(evt) {
-    
-    console.log("Inside getResults()")
-    console.log(evt)
     evt.preventDefault()
+
     let data = searchArea.value
-    console.log("Data is", data)
-
-    //  ...3/movie/now_playing (do not include search if not searching)
-
-    // OLD EXAMPLE: let apiUrl = ("https://api.giphy.com/v1/gifs/search?api_key=" + API_KEY + "&q=" + data + "&rating=" + rating + "&limit=" + limit + "&offset=" + offset)
     let apiUrl = ("https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&query=" + data + "&page=" + searchPageNum)
-    console.log(apiUrl)
-
     let apiFetch = await fetch(apiUrl)
-
     let apiFetchData = await apiFetch.json()
-
-    console.log(apiFetchData)
 
     loadButton.classList.remove("hidden")
 
-    
     displayResults(apiFetchData.results)
-
 }
 
 function displayResults(data) {
-    //movieSet = data.slice(offset, offset + limit)
     data.forEach(movie => {
         let posterPath = "http://image.tmdb.org/t/p/w500" + movie.poster_path;
-        console.log("Current index is: " + index) 
         moviesGrid.innerHTML += `
          <div class="movie-card">
             
@@ -128,17 +95,12 @@ function displayResults(data) {
     })
 }
 
-// Dont have to show 4 movies at a time, show 4 movies in a row
-// Can have as many rows as u want
-
 function showMore(evt) {
-    offset += limit;
+    //offset += limit;
     //pageNum++;
 
     // insert code here that, if there are no more avilable movies,
     // replaces show more with text reding "No more results"
-
-    
 
     if (nowPlayingStatus == true) {
         nowPlayingPageNum++;
@@ -154,27 +116,23 @@ function showMore(evt) {
 /* Open when someone clicks on the span element */
 async function openNav(movieId) {
     document.getElementById("page-overlay").style.width = "100%";
-    console.log("Selected movie is " + movieId)
 
     let apiUrl = ("https://api.themoviedb.org/3/movie/" + movieId + "?api_key=" + API_KEY)
     let apiFetch = await fetch(apiUrl)
     let apiFetchData = await apiFetch.json()
 
-
     let videoApiUrl =  ("https://api.themoviedb.org/3/movie/" + movieId + "/videos?api_key=" + API_KEY)
-
-
     let videoApiFetch = await fetch(videoApiUrl)
     let videoApiFetchData = await videoApiFetch.json()
     let trailer = videoApiFetchData.results[0].key;
 
-    console.log(apiFetchData)
     let movie = apiFetchData;
 
-    let backDropPath = "http://image.tmdb.org/t/p/w500" + movie.backdrop_path;
+    // let backDropPath = "http://image.tmdb.org/t/p/w500" + movie.backdrop_path;
 
     let movieGenres = '';
 
+    // Iterates through array of movie genres and puts them in string separated by commas
     for (let i = 0; i<movie.genres.length; i++) {
         movieGenres += movie.genres[i].name;
         if (i + 1 < movie.genres.length) {
@@ -186,7 +144,6 @@ async function openNav(movieId) {
          <div class="movie-info">
             
             <iframe width="560" height="315" class="overlay-trailer" src="https://www.youtube.com/embed/${trailer}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            
 
             <div class="overlay-text-container">
                 <p3 class="overlay-movie-tagline">${movie.tagline}</p3>
@@ -213,20 +170,11 @@ async function openNav(movieId) {
             
         </div>
         `
-// <iframe width="560" height="315" src="https://www.youtube.com/embed/${trailer}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 
   }
   
   /* Close when someone clicks on the "x" symbol inside the overlay */
   function closeNav() {
     document.getElementById("page-overlay").style.width = "0%";
+    overlayContainer.innerHTML = ``
   }
-
-
-
-// test change
-
-// update currnetpagenum after u press show more
-
-// TODO: allow showing more than 20 results
