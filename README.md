@@ -62,4 +62,4 @@ I think my animation for the popup overlay sliding in was a nice feature that sh
 
 ### Shout out
 
-I'd like to shout out my 2 parters I had for this lab, Jenny and Aligary, for being such a huge help in various issues I faced. I would also like to give a shout out to the TA's Rebecca and Snigdha for being extremely helpful when it came to debugging things in minutes that would have taken me several hours to do on my own. My project wouldn't be anywhere near where it is now if it wasn't for the amazing guiadance I recieved along the way from everyone.
+I'd like to shout out my 2 partners I had for this lab, Jenny and Aligary, for being such a huge help in various issues I faced. I would also like to give a shout out to the TA's Rebecca and Snigdha for being extremely helpful when it came to debugging things in minutes that would have taken me several hours to do on my own. My project wouldn't be anywhere near where it is now if it wasn't for the amazing guidance I recieved along the way from everyone.
