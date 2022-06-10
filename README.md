@@ -44,6 +44,10 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 `ADD_EMBEDDED_CODE_HERE`
 
+
+https://user-images.githubusercontent.com/91973579/173163356-077c1771-1684-42c6-828f-0bf39e56146b.mp4
+
+
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
