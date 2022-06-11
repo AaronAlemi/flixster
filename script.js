@@ -10,12 +10,12 @@ let searchPageNum = 1;
 let nowPlayingPageNum = 1;
 
 // DOM
-const searchArea = document.getElementById("search-area");
+const searchArea = document.getElementById("search-input");
 const findMoviesButton = document.getElementById("submit-button");
 const form = document.getElementById("form");
 const moviesGrid = document.getElementById("movies-grid");
 const loadButton = document.getElementById("load-more-movies-btn");
-const resetButton = document.getElementById("reset-button");
+const resetButton = document.getElementById("close-search-btn");
 const overlayContainer = document.getElementById("overlay-container")
 const nowPlayingText = document.getElementById("now-playing-text")
 const searchText = document.getElementById("search-results-text")
