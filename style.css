@@ -1,7 +1,9 @@
 body {
     background-color: black;
     text-align: center;
-    
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
 }
 
 h1 {
@@ -63,14 +65,14 @@ button {
     justify-content: center;
     align-content: center;
     size: auto;
-    
   
     
 }
 
 
 .movie-card {
-    
+    width: 100vw;
+    height: 100vh;
 }
 
 .movie-poster {
