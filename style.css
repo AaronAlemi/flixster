@@ -1,9 +1,6 @@
 body {
     background-color: black;
     text-align: center;
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
 }
 
 h1 {
@@ -71,17 +68,21 @@ button {
 
 
 .movie-card {
-    width: 100vw;
-    height: 100vh;
+   transition: 1s
 }
+
+.movie-card:hover {
+    transform:scale(1.1);
+}
+
 
 .movie-poster {
     transition: 1s;
 }
 
-.movie-poster:hover {
+/*.movie-poster:hover {
     transform:scale(1.1);
-}
+} */
 
 .movie-title {
     color:white;
